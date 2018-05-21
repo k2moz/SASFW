@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\**" />
+    <EmbeddedResource Remove="Migrations\**" />
+    <None Remove="Migrations\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Migrations\20180517092213_Init999.cs" />
+    <Compile Include="Migrations\20180517092213_Init999.Designer.cs" />
+    <Compile Include="Migrations\20180517093639_Init9999.cs" />
+    <Compile Include="Migrations\20180517093639_Init9999.Designer.cs" />
+    <Compile Include="Migrations\20180517142056_Init99999.cs" />
+    <Compile Include="Migrations\20180517142056_Init99999.Designer.cs" />
+    <Compile Include="Migrations\20180519175237_Init999999.cs" />
+    <Compile Include="Migrations\20180519175237_Init999999.Designer.cs" />
+    <Compile Include="Migrations\EFDBContextModelSnapshot.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.3" />
+  </ItemGroup>
+
+</Project>
