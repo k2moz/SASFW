@@ -8,7 +8,7 @@ using DataLayer.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using PresentationLayer.ViewModels.Account;
+using PresentationLayer.Models.Account;
 
 namespace SASFW.Controllers
 {
@@ -49,6 +49,10 @@ namespace SASFW.Controllers
         public IActionResult Register()
         {
             return View();
+        }
+        public IActionResult AccessDenied()
+        {
+            return RedirectToAction("Login");
         }
 
         [HttpPost]

@@ -19,6 +19,8 @@
     <Compile Include="Migrations\20180517142056_Init99999.Designer.cs" />
     <Compile Include="Migrations\20180519175237_Init999999.cs" />
     <Compile Include="Migrations\20180519175237_Init999999.Designer.cs" />
+    <Compile Include="Migrations\20180522121513_Init9999999.cs" />
+    <Compile Include="Migrations\20180522121513_Init9999999.Designer.cs" />
     <Compile Include="Migrations\EFDBContextModelSnapshot.cs" />
   </ItemGroup>
 

@@ -1,26 +1,27 @@
-﻿<!-- layout-medium -->
-<div class="layout-medium">
-    <!-- InstanceBeginEditable name="LayoutMediumContent" -->
-    <!-- .hentry -->
-    <article class="hentry type-portfolio">
-        <header class="entry-header">
-            <h1 class="entry-title">Read</h1>
-            <!-- HEADER LINKS -->
-            <ul class="header-links">
-                <li><a href="portfolio.html"><i class="pw-icon-level-up"></i> Back to Portfolio</a></li>
-            </ul>
-            <!-- HEADER LINKS -->
-        </header>
+﻿@using PresentationLayer.Models
 
-        <!-- .entry-content -->
-        <div class="entry-content">
-            <p>Photographer is a responsive WordPress theme created for creative Photographers with a minimalist design and optimized for mobile. It is clean, minimalist, content-focused and responsive. It looks great on every device. Your readers will enjoy reading your blog.</p>
-            <!-- row -->
-            <div class="row">
+@model PresentationLayer.Models.Directorys.MaterialPageViewModel
+
+<!-- .hentry -->
+<article class="hentry type-portfolio">
+    <header class="entry-header">
+        <h1 class="entry-title">@Model.Material.Material.Title</h1>
+        <!-- HEADER LINKS -->
+        <ul class="header-links">
+            <li><a asp-action="Index" asp-controller="Portfolio"><i class="pw-icon-level-up"></i> Back to Portfolio</a></li>
+        </ul>
+        <!-- HEADER LINKS -->
+    </header>
+
+    <!-- .entry-content -->
+    <div class="entry-content">
+        <p>@Model.Material.Material.SeoDescription</p>
+        <!-- row -->
+        @*<div class="row">
                 <!-- column 6/12 -->
                 <div class="col-sm-6">
                     <h2 class="section-title">Launch Project</h2>
-                    <p><a class="button" target="_blank" href="http://themes.pixelwars.org/?theme=photographer">Launch Project</a></p>
+                    <p><a class="button" target="_blank" href="">Launch Project</a></p>
                 </div>
                 <!-- column 6/12 -->
                 <!-- column 6/12 -->
@@ -29,60 +30,32 @@
                     <p>Wordpress Users</p>
                 </div>
                 <!-- column 6/12 -->
-
-            </div>
-            <!-- row -->
-            <p>
-                <a href="images/portfolio/single/single-01.jpg" class="fluidbox"><div class="fluidbox-wrap" style="z-index: 990;"><img src="images/portfolio/single/single-01.jpg" alt="image" style="opacity: 1;"><div class="fluidbox-ghost" style="width: 1040px; height: 693px; top: 21px; left: 0px;"></div></div></a>
-            </p>
-
-            <p>
-                <a href="images/portfolio/single/single-02.jpg" class="fluidbox"><div class="fluidbox-wrap" style="z-index: 990;"><img src="images/portfolio/single/single-02.jpg" alt="image" style="opacity: 1;"><div class="fluidbox-ghost" style="width: 1040px; height: 693px; top: 21px; left: 0px;"></div></div></a>
-            </p>
-
-            <!-- .gallery -->
-            <div class="gallery gallery-columns-2 gallery-size-thumbnail">
-
-                <figure class="gallery-item">
-                    <div class="gallery-icon landscape">
-                        <a href="images/portfolio/single/single-03.jpg" class="fluidbox"><div class="fluidbox-wrap" style="z-index: 990;"><img width="150" height="150" src="images/portfolio/single/single-03.jpg" class="attachment-thumbnail" alt="Golden Gate Bridge" style="opacity: 1;"><div class="fluidbox-ghost" style="width: 518px; height: 389px; top: 0px; left: 0px;"></div></div></a>
-                    </div>
-                </figure>
-
-                <figure class="gallery-item">
-                    <div class="gallery-icon landscape">
-                        <a href="images/portfolio/single/single-04.jpg" class="fluidbox"><div class="fluidbox-wrap" style="z-index: 990;"><img width="150" height="150" src="images/portfolio/single/single-04.jpg" class="attachment-thumbnail" alt="Golden Gate Bridge" style="opacity: 1;"><div class="fluidbox-ghost" style="width: 518px; height: 389px; top: 0px; left: 0px;"></div></div></a>
-                    </div>
-                </figure>
-
-            </div>
-            <!-- .gallery -->
-            <!-- .media-wrap -->
-            <div class="media-wrap">
-                <div class="fluid-width-video-wrapper" style="padding-top: 56.2%;"><iframe src="http://player.vimeo.com/video/93094247?title=0&amp;byline=0&amp;portrait=0&amp;color=AB977A" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" id="fitvid914407"></iframe></div>
-            </div>
-            <!-- .media-wrap -->
+            </div>*@
+        <!-- row -->
+        <p>
+            @Html.Raw(@Model.Material.Material.PageHtml)
+        </p>
 
 
-        </div>
-        <!-- .entry-content -->
-        <!-- .nav-single -->
-        <nav class="nav-single row">
-
+    </div>
+    <!-- .entry-content -->
+    <!-- .nav-single -->
+    <nav class="nav-single row">
+        @if (Model.PrevMaterialPage != null)
+        {
             <div class="nav-previous col-sm-6">
-                <h4>PREVIOUS PROJECT</h4>
-                <a href="portfolio-single-alt.html" rel="prev"><span class="meta-nav">←</span> Game Characters</a>
+                <h4>@Model.PrevMaterialPage.CallToAction</h4>
+                <a asp-action="PortfolioItem" asp-controller="Portfolio" asp-route-itemId="@Model.PrevMaterialPage.EntityId" rel="prev"><span class="meta-nav">←</span> @Model.PrevMaterialPage.Title</a>
             </div>
-
+        }
+        @if (Model.NextMaterialPage != null)
+        {
             <div class="nav-next col-sm-6">
-                <h4>NEXT PROJECT</h4>
-                <a href="portfolio-single-alt.html" rel="next">Retro Logos And Badges <span class="meta-nav">→</span></a>
+                <h4>@Model.NextMaterialPage.CallToAction</h4>
+                <a asp-action="PortfolioItem" asp-controller="Portfolio" asp-route-itemId="@Model.NextMaterialPage.EntityId" rel="next"><span class="meta-nav">→</span> @Model.NextMaterialPage.Title</a>
             </div>
-
-        </nav>
-        <!-- .nav-single -->
-    </article>
-    <!-- .hentry -->
-    <!-- InstanceEndEditable -->
-</div>
-<!-- layout-medium -->
+        }
+    </nav>
+    <!-- .nav-single -->
+</article>
+<!-- .hentry -->

@@ -8,12 +8,10 @@
     <meta name="keywords" content="developer, blog, asp.core, c#">
     <meta name="author" content="Aleksander Sazhin">
     <link rel="icon" type="image/png" href="/images/favicon96.png" />
-    <title>Aleksander Sazhin's personal blog</title>
+
+    <title>@(string.IsNullOrEmpty((string)ViewData["Title"]) ? "Aleksander Sazhin's personal blog" : (string)ViewData["Title"])</title>
 
     <!-- FONTS -->
-    @*<link href="~/css/new/css" rel="stylesheet" type="text/css">
-    <link href="~/css/new/css(1)" rel="stylesheet" type="text/css">*@
-
     <!-- STYLES -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="~/css/new/bootstrap.min.css">
@@ -55,6 +53,9 @@
                 width: 100%;
                 height: 100%;
             }
+        .progress{
+            overflow:visible;
+        }
     </style>
 
     <link type="text/css" rel="stylesheet" href="chrome-extension://pioclpoplcdbaefihamjohnefbikjilc/content.css">
@@ -75,55 +76,25 @@
                 <div class="nav-menu">
                     <ul>
                         <li>
-                            <a href="/">На главную</a>
-                            <!-- level 2 -->
-                            @*<ul>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html">Home Alternate</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/blog-masonry.html">Blog Masonry</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/blog-simple.html">Blog Simple</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/blog-regular-with-sidebar.html">Blog Regular Sidebar</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/blog-masonry-with-sidebar.html">Blog Masonry Sidebar</a></li>
-                                </ul>*@
-                            <!-- level 2 -->
+                            <a href="/">Home</a>
                         </li>
-                        <li><a asp-action="Portfolio" asp-controller="Home">Портфолио</a></li>
-                        <li><a asp-action="Index" asp-controller="Blog">Блог</a></li>
-                        @*<li><a href="http://themes.pixelwars.org/editor-html/books.html">Книги</a></li>*@
-                        @*<li><a href="http://themes.pixelwars.org/editor-html/gallery.html">Gallery</a></li>*@
+                        <li><a asp-action="Index" asp-controller="Portfolio">Portfolio</a></li>
+                        @*<li><a asp-action="Index" asp-controller="Blog">Blog</a></li>*@
                         <li>
-                            <a asp-action="About" asp-controller="Home">Обо мне</a>
-                            <!-- level 2 -->
-                            @*<ul>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/resume.html">Resume</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/typo.html">Typography</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/shortcodes.html">Shortcodes</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/archives.html">Archives</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/404.html">404</a></li>
-                                    <li><a href="http://themes.pixelwars.org/editor-html/grid.html">Grid</a></li>
-                                    <li>
-                                        <a href="http://themes.pixelwars.org/editor-html/form-elements.html">Forms</a>
-                                        <!-- level 3 -->
-                                        <ul>
-                                            <li><a href="http://themes.pixelwars.org/editor-html/grid.html">Grid</a></li>
-                                            <li><a href="http://themes.pixelwars.org/editor-html/form-elements.html">Forms</a></li>
-                                        </ul>
-                                        <!-- level 3 -->
-                                    </li>
-                                </ul>*@
+                            <a asp-action="About" asp-controller="Home">About me</a>
                             <!-- level 2 -->
                         </li>
-                        <li><a asp-action="Contact" asp-controller="Home">Контакты</a></li>
+                        <li><a asp-action="Contact" asp-controller="Home">Contact</a></li>
                     </ul>
                 </div>
                 <!-- nav-menu -->
-
-                <a class="search-toggle toggle-link"></a>
+                @*<a class="search-toggle toggle-link"></a>*@
 
                 <!-- search-container -->
                 @*<div class="search-container">
 
                         <div class="search-box">
-                            <form role="search" method="get" class="search-form" action="http://themes.pixelwars.org/editor-html/home-alt.html#">
+                            <form role="search" method="get" class="search-form" action="">
                                 <label>
                                     Search for
                                     <input type="search" id="search-field" placeholder="type and hit enter" name="s">
@@ -138,11 +109,10 @@
                 <div class="social-container">
 
                     <ul class="social">
+                        <li><a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100006656046064"></a></li>
                         <li><a class="vkontakte" target="_blank" href="https://vk.me/brainotekalight"></a></li>
                         <li><a class="github" target="_blank" href="https://github.com/k2moz"></a></li>
-                        <li><a class="telegram" target="_blank" href="https://t.me/k2moz"></a></li>
-
-                        @*<li><a class="facebook" href="http://themes.pixelwars.org/editor-html/home-alt.html#"></a></li>*@
+                        @*<li><a class="telegram" target="_blank" href="https://t.me/k2moz"></a></li>*@
 
                     </ul>
 
@@ -180,7 +150,12 @@
 
                 <!-- site-content -->
                 <div id="content" class="site-content" role="main">
-                    @RenderBody()
+                    <!-- InstanceBeginEditable name="FeaturedContent" -->
+                    <!-- InstanceEndEditable -->
+                    <!-- layout-medium -->
+                    <div class="layout-medium">
+                        @RenderBody()
+                    </div>
                 </div>
                 <!-- site-content -->
 
@@ -202,16 +177,13 @@
                 <div class="footer-social">
 
                     <ul class="social">
+
+                        @*<li><a class="telegram" target="_blank" href="https://t.me/k2moz"></a></li>*@
+                        <li>
+                            <a class="facebook" target="_blank" href="https://www.facebook.com/profile.php?id=100006656046064"></a>
+                        </li>
                         <li><a class="vkontakte" target="_blank" href="https://vk.me/brainotekalight"></a></li>
                         <li><a class="github" target="_blank" href="https://github.com/k2moz"></a></li>
-                        <li><a class="telegram" target="_blank" href="https://t.me/k2moz"></a></li>
-
-                        @*<li><a class="facebook" href="#"></a></li>
-                        <li><a class="twitter" href="#"></a></li>
-                        <li><a class="google-plus" href="#"></a></li>
-                        <li><a class="dribbble" href="#"></a></li>
-                        <li><a class="instagram" href="#"></a></li>
-                        <li><a class="vine" href="#"></a></li>*@
                     </ul>
 
                 </div>
@@ -221,41 +193,41 @@
 
                     <!-- widget -->
                     <aside class="widget widget_text">
-                        <h3 class="widget-title">О мне</h3>
+                        <h3 class="widget-title">About me</h3>
                         <div class="textwidget">
-                            <img src="/images/about-small.jpg" alt="avatar"> <p>Hello. I am a freelance writer. I live in a small town somewhere in the world.</p>
+                            <img src="/images/about-small.jpg" alt="avatar"> <p>I'm a professional web developer from Moscow. I work with projects of customers, companies and my projects.</p>
                         </div>
                     </aside>
                     <!-- widget -->
                     <!-- widget -->
                     @*<aside class="widget widget_tag_cloud">
-                        <h3 class="widget-title">Тэги</h3>
-                        <div class="tagcloud"> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">adaptive</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">design</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">html</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">responsive</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">think</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">web design</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">css</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">animations</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">layout</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 14pt;">mobile</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">think</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">typography</a> </div>
-                    </aside>*@
+                            <h3 class="widget-title">Тэги</h3>
+                            <div class="tagcloud"> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">adaptive</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">design</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">html</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">responsive</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">think</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">web design</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">css</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">animations</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">layout</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 14pt;">mobile</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="2 topics" style="font-size: 22pt;">think</a> <a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="1 topic" style="font-size: 8pt;">typography</a> </div>
+                        </aside>*@
                     <!-- widget -->
                     <!-- widget : categories -->
                     @*<aside class="widget widget_categories">
-                        <h3 class="widget-title">Категории</h3>
-                        <ul>
-                            <li class="cat-item"><a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="View all posts filed under Nature">Nature</a></li>
-                            <li class="cat-item"><a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="View all posts filed under Life">Life</a></li>
-                            <li class="cat-item"><a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="View all posts filed under Adventure">Adventure</a></li>
-                            <li class="cat-item"><a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="View all posts filed under Freebies">Travel</a></li>
-                            <li class="cat-item"><a href="http://themes.pixelwars.org/editor-html/home-alt.html#" title="View all posts filed under Sport">Sport</a></li>
-                        </ul>
-                    </aside>*@
+                            <h3 class="widget-title">Категории</h3>
+                            <ul>
+                                <li class="cat-item"><a href="#" title="View all posts filed under Nature">Nature</a></li>
+                                <li class="cat-item"><a href="#" title="View all posts filed under Life">Life</a></li>
+                                <li class="cat-item"><a href="#" title="View all posts filed under Adventure">Adventure</a></li>
+                                <li class="cat-item"><a href="#" title="View all posts filed under Freebies">Travel</a></li>
+                                <li class="cat-item"><a href="#" title="View all posts filed under Sport">Sport</a></li>
+                            </ul>
+                        </aside>*@
                     <!-- widget : categories -->
                     <!-- widget -->
                     @*<aside class="widget widget_recent_entries">
-                        <h3 class="widget-title">Последние записи</h3>
-                        <ul>
-                            <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html#">Runaway A Road Adventure</a></li>
-                            <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html#">All In Our Head</a></li>
-                            <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html#">Smaller Plate</a></li>
-                            <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html#">Alice On The Roof</a></li>
-                            <li><a href="http://themes.pixelwars.org/editor-html/home-alt.html#">Becoming A DragonFly</a></li>
-                        </ul>
-                    </aside>*@
+                            <h3 class="widget-title">Последние записи</h3>
+                            <ul>
+                                <li><a href="#">Runaway A Road Adventure</a></li>
+                                <li><a href="#">All In Our Head</a></li>
+                                <li><a href="#">Smaller Plate</a></li>
+                                <li><a href="#">Alice On The Roof</a></li>
+                                <li><a href="#">Becoming A DragonFly</a></li>
+                            </ul>
+                        </aside>*@
                     <!-- widget -->
 
 
@@ -271,7 +243,7 @@
                     <!-- layout-medium -->
                     <div class="layout-medium">
 
-                        <p>crafted with <i class="pw-icon-heart"></i> <em>by</em> Pixelwars</p>
+                        <p>crafted with <i class="pw-icon-heart"></i> <em>by</em></p>
 
                     </div>
                     <!-- layout-medium -->
@@ -301,9 +273,14 @@
     <script src="~/js/new/selection-sharer.js"></script>
     <script src="~/js/new/r-gallery.js"></script>
 
-    
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+    <link href="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.css" rel="stylesheet">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote.js"></script>
+
     <script src="~/js/new/main.js"></script>
 
 

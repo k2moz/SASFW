@@ -1,17 +1,96 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<article class="hentry page">
+
+    <header class="entry-header">
+        <h1 class="entry-title">Contact Me</h1>
+    </header>
+
+    <!-- .entry-content -->
+    <div class="entry-content">
+
+
+
+        <!-- SOCIAL -->
+        @*<ul class="social">
+            <li><a class="stack-overflow" href="https://stackoverflow.com/users/9816684/Александр-Сажин"></a></li>
+            <li><a class="facebook" href="#"></a></li>
+                <li><a class="twitter" href="#"></a></li>
+                <li><a class="linkedin" href="#"></a></li>
+                <li><a class="google-plus" href="#"></a></li>
+                <li><a class="pinterest" href="#"></a></li>
+                <li><a class="github" href="#"></a></li>
+                <li><a class="dribbble" href="#"></a></li>
+                <li><a class="instagram" href="#"></a></li>
+                <li><a class="lastfm" href="#"></a></li>
+                <li><a class="vine" href="#"></a></li>
+                <li><a class="rss" href="#"></a></li>
+        <li><a class="behance" href="#"></a></li>
+        <li><a class="vimeo" href="#"></a></li>
+        <li><a class="forrst" href="#"></a></li>
+        <li><a class="skype" href="#"></a></li>
+        <li><a class="picasa" href="#"></a></li>
+        <li><a class="youtube" href="#"></a></li>
+        <li><a class="flickr" href="#"></a></li>
+        <li><a class="tumblr" href="#"></a></li>
+        <li><a class="blogger" href="#"></a></li>
+        <li><a class="delicious" href="#"></a></li>
+        <li><a class="digg" href="#"></a></li>
+        <li><a class="friendfeed" href="#"></a></li>
+        <li><a class="wordpress" href="#"></a></li>
+
+        <li><a class="foursquare" href="#"></a></li>
+        <li><a class="xing" href="#"></a></li>
+        <li><a class="weibo" href="#"></a></li>
+        <li><a class="soundcloud" href="#"></a></li>
+        <li><a class="fivehundredpx" href="#"></a></li>
+        <li><a class="slideshare" href="#"></a></li>
+        </ul>*@
+
+        <h3 class="section-title">Contact me by email</h3>
+
+        <address>
+            <strong>Email:</strong> <a href="mailto:aleksandersazhin@gmail.com">aleksandersahin@gmail.com</a><br />
+            @*<strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>*@
+        </address>
+        <h3 class="section-title">Or contact me on the social networks listed in the footer of the site</h3>
+        @*<h3 class="section-title">Or mail me!</h3>
+        <!-- .contact-form -->
+        <div class="contact-form">
+            <form id="contact-form" class="validate-form" method="post" action="send-mail.php" novalidate="novalidate">
+                <!-- enter mail subject here -->
+                <input type="hidden" name="subject" id="subject" value="You have a new message from Editor!">
+
+                <p>
+                    <label for="name">NAME</label>
+                    <input type="text" name="name" id="name" class="required" aria-required="true">
+                </p>
+
+                <p>
+                    <label for="email">EMAIL</label>
+                    <input type="text" name="email" id="email" class="required email" aria-required="true">
+                </p>
+
+                <p class="antispam">
+                    Leave this empty if you are a human :
+                    <br><input name="url">
+                </p>
+
+                <p>
+                    <label for="message">MESSAGE</label>
+                    <textarea name="message" id="message" class="required" aria-required="true"></textarea>
+                </p>
+
+                <p>
+                    <button class="submit button"><span class="submit-label">Submit</span><span class="submit-status"></span></button>
+                </p>
+            </form>
+        </div>*@
+        <!-- .contact-form -->
+    </div>
+    <!-- .entry-content -->
+</article>
+

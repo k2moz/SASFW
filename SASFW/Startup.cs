@@ -9,6 +9,7 @@ using DataLayer;
 using DataLayer.Entities;
 using DataLayer.Entities.CommonEntities;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -40,6 +41,15 @@ namespace SASFW
                 {
                     options.LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login");
                 });
+
+            services.AddTransient<IAuthorizationHandler, CustumAuthorizeAttributeByUserEmail>();
+
+            services.AddAuthorization(opts =>
+            {
+                opts.AddPolicy("AdminOnly",
+                    policy => policy.Requirements.Add(new UserEmailRequirement(Configuration.GetValue("AdminEmail", ""))));
+            });
+
             services.AddTransient<ICustumRepository<User>, EFCustumRepository<User>>();
             services.AddTransient<ICustumRepository<Directory>, EFCustumRepository<Directory>>();
             services.AddTransient<ICustumRepository<Material>, EFCustumRepository<Material>>();
@@ -48,6 +58,7 @@ namespace SASFW
             services.AddTransient<ICustumRepository<CustumFieldValue>, EFCustumRepository<CustumFieldValue>>();
             services.AddScoped<DataManager>();
             
+
             services.AddMvc();
            
         }

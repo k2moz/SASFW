@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace PresentationLayer.ViewModels.Account
+namespace PresentationLayer.Models.Account
 {
     public class LoginModel
     {

@@ -2,21 +2,34 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using BusinessLayer;
 using Microsoft.AspNetCore.Mvc;
+using PresentationLayer;
 
 namespace SASFW.Controllers
 {
     public class PortfolioController : Controller
     {
+        private DataManager _dataManager;
+        private ServicesManager _servicesManager;
+
+        public PortfolioController(DataManager dataManager)
+        {
+            _dataManager = dataManager;
+            _servicesManager = new ServicesManager(dataManager);
+        }
 
         public IActionResult Index()
         {
-            return View();
+            ///TODO:3005 - hard code (replace on types dependency)
+            var _portfolioDirectory = _servicesManager.Directorys.GetDirectoryViewModelByDirectoryId(3005);
+            return View(_portfolioDirectory);
         }
 
-        public IActionResult PortfolioItem(string itemId)
+        public IActionResult PortfolioItem(int itemId)
         {
-            return View();
+            var _portfolioItem = _servicesManager.Directorys.GetMaterialPageViewModelByMaterialId(itemId);
+            return View(_portfolioItem);
         }
     }
 }

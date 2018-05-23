@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 using BusinessLayer;
 using Microsoft.AspNetCore.Mvc;
 using PresentationLayer;
-using PresentationLayer.ViewModels.Directorys;
+using PresentationLayer.Models.Directorys;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using DataLayer.Entities.CommonEntities;
+using Microsoft.AspNetCore.Authorization;
+using DataLayer.Entities;
 
 namespace SASFW.Controllers
 {
+    [Authorize(Policy = "AdminOnly")]
     public class AdminController : Controller
     {
         private DataManager _dataManager;
@@ -37,7 +42,7 @@ namespace SASFW.Controllers
         {
             var _directorys = _dataManager.Directorys.GetAllItems();
             List<DirectoryViewModel> directorysModelsList = new List<DirectoryViewModel>();
-            foreach(var item in _directorys.Where(x=>x.Status != DataLayer.PageStatusEnum.Delete))
+            foreach (var item in _directorys.Where(x => x.Status != DataLayer.PageStatusEnum.Delete))
             {
                 directorysModelsList.Add(_servicesManager.Directorys.GetDirectoryViewModelByDirectoryId(item.Id));
             }
@@ -49,6 +54,7 @@ namespace SASFW.Controllers
         public JsonResult saveDirectory(string directoryJson)
         {
             var directory = JsonConvert.DeserializeObject<DirectoryViewModel>(directoryJson);
+            directory.Directory.LastUpdateDateTime = DateTime.Now;
             _servicesManager.Directorys.SaveDirectoryViewModelToDb(directory);
             return Json(directory);
         }
@@ -72,11 +78,13 @@ namespace SASFW.Controllers
 
         #region Materials
 
-        public JsonResult getMaterial(int materialId) {
+        public JsonResult getMaterial(int materialId)
+        {
             return Json(_servicesManager.Directorys.GetMaterialViewModelByMaterialId(materialId));
         }
 
-        public JsonResult saveMaterial(string materialJson) {
+        public JsonResult saveMaterial(string materialJson)
+        {
             var material = JsonConvert.DeserializeObject<MaterialViewModel>(materialJson);
             _servicesManager.Directorys.SaveMaterialViewModelToDb(material);
             return Json(material);
@@ -97,8 +105,29 @@ namespace SASFW.Controllers
             return Json(material);
         }
 
+        public JsonResult materialsSort(string jsonMaterials)
+        {
+            try
+            {
+                JObject o = JObject.Parse(jsonMaterials);
+                Material materialFrom = JsonConvert.DeserializeObject<Material>(o["materialFrom"].ToString());
+                Material materialTo = JsonConvert.DeserializeObject<Material>(o["materialTo"].ToString());
+
+                var _buffer = materialFrom.Order;
+                materialFrom.Order = materialTo.Order;
+                materialTo.Order = _buffer;
+
+                _dataManager.Materials.UpdateItem(materialFrom);
+                _dataManager.Materials.UpdateItem(materialTo);
+                return Json(true);
+            }
+            catch (Exception e)
+            {
+                throw new Exception("WTF");
+            }
+        }
         #endregion
-       
+
 
         #endregion
         public IActionResult MaterialsEditor()

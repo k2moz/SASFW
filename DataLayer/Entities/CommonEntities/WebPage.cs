@@ -11,6 +11,9 @@ namespace DataLayer.Entities.CommonEntities
         
         public string Author { get; set; }
 
+        public string smallPreview { get; set; }
+        public string bigPreview { get; set; }
+
         public DateTime CreatedDateTime { get; set; }
         public DateTime LastUpdateDateTime { get; set; }
         
