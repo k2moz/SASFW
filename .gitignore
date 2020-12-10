@@ -1,1 +1,3 @@
 .vs/
+SASFW/SASFW/appsettings.json
+SASFW/DataLayer/EFDBContext.cs

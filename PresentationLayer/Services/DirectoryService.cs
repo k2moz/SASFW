@@ -42,6 +42,7 @@ namespace PresentationLayer.Services
         {
             var _directory = directoryViewModel.Directory;
             _directory.LastUpdateDateTime = DateTime.Now;
+            
             if (directoryViewModel.Directory.Id == 0)
             {
                 _directory.CreatedDateTime = DateTime.Now;

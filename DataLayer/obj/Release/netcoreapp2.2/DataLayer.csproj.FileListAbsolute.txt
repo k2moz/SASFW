@@ -1,0 +1,9 @@
+D:\Шара\Projects\Git\SASFW\DataLayer\bin\Release\netcoreapp2.2\DataLayer.deps.json
+D:\Шара\Projects\Git\SASFW\DataLayer\bin\Release\netcoreapp2.2\DataLayer.dll
+D:\Шара\Projects\Git\SASFW\DataLayer\bin\Release\netcoreapp2.2\DataLayer.pdb
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.csprojAssemblyReference.cache
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.AssemblyInfoInputs.cache
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.AssemblyInfo.cs
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.csproj.CoreCompileInputs.cache
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.dll
+D:\Шара\Projects\Git\SASFW\DataLayer\obj\Release\netcoreapp2.2\DataLayer.pdb

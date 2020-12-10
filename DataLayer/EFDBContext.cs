@@ -32,8 +32,9 @@ namespace DataLayer
         public EFDBContext CreateDbContext(string[] args)
         {
             var optionsBuilder = new DbContextOptionsBuilder<EFDBContext>();
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=mobilestoredb;Trusted_Connection=True;MultipleActiveResultSets=true", b => b.MigrationsAssembly("DataLayer"));
-            
+            optionsBuilder.UseSqlServer("Data Source=wpl27.hosting.reg.ru; Initial Catalog=u0513189_DB; Persist Security Info=False;Integrated Security=False;MultipleActiveResultSets=True; User ID=u0513189_k2moz; Password=474963551aA;", b => b.MigrationsAssembly("DataLayer"));
+            //optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=mobilestoredb;Trusted_Connection=True;MultipleActiveResultSets=true", b => b.MigrationsAssembly("DataLayer"));
+
             //
             //optionsBuilder.UseSqlite("Data Source=blog.db");
 

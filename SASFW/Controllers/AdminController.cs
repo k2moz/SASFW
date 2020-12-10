@@ -15,6 +15,7 @@ using DataLayer.Entities;
 namespace SASFW.Controllers
 {
     [Authorize(Policy = "AdminOnly")]
+    //[DisableRequestSizeLimit]
     public class AdminController : Controller
     {
         private DataManager _dataManager;
@@ -98,6 +99,8 @@ namespace SASFW.Controllers
             return Json(material);
         }
 
+        //[DisableRequestSizeLimit]
+        //[RequestSizeLimit(100_000_000)]
         public JsonResult updateMaterial(string materialJson)
         {
             var material = JsonConvert.DeserializeObject<MaterialViewModel>(materialJson);

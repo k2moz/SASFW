@@ -22,7 +22,7 @@ namespace SASFW.Controllers
         public IActionResult Index()
         {
             ///TODO:3005 - hard code (replace on types dependency)
-            var _portfolioDirectory = _servicesManager.Directorys.GetDirectoryViewModelByDirectoryId(3005);
+            var _portfolioDirectory = _servicesManager.Directorys.GetDirectoryViewModelByDirectoryId(1);
             return View(_portfolioDirectory);
         }
 

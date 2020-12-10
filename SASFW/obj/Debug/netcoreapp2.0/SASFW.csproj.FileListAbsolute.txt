@@ -16,3 +16,8 @@ D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\DataLayer.pdb
 D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\PresentationLayer.pdb
 D:\Шара\Projects\Git\SASFW\SASFW\obj\Debug\netcoreapp2.0\SASFW.csproj.CopyComplete
 D:\Шара\Projects\Git\SASFW\SASFW\obj\Debug\netcoreapp2.0\SASFW.csprojAssemblyReference.cache
+D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\appsettings.Development.json
+D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\appsettings.json
+D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\bundleconfig.json
+D:\Шара\Projects\Git\SASFW\SASFW\bin\Debug\netcoreapp2.0\Properties\launchSettings.json
+D:\Шара\Projects\Git\SASFW\SASFW\obj\Debug\netcoreapp2.0\SASFW.genruntimeconfig.cache

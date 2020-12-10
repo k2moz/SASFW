@@ -1,0 +1,12 @@
+D:\Шара\Projects\Git\SASFW\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.deps.json
+D:\Шара\Projects\Git\SASFW\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.dll
+D:\Шара\Projects\Git\SASFW\BusinessLayer\bin\Debug\netcoreapp2.1\BusinessLayer.pdb
+D:\Шара\Projects\Git\SASFW\BusinessLayer\bin\Debug\netcoreapp2.1\DataLayer.dll
+D:\Шара\Projects\Git\SASFW\BusinessLayer\bin\Debug\netcoreapp2.1\DataLayer.pdb
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csprojAssemblyReference.cache
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfoInputs.cache
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.AssemblyInfo.cs
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CoreCompileInputs.cache
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.csproj.CopyComplete
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.dll
+D:\Шара\Projects\Git\SASFW\BusinessLayer\obj\Debug\netcoreapp2.1\BusinessLayer.pdb

@@ -1,0 +1,440 @@
+﻿@using PresentationLayer.Models
+
+@model PresentationLayer.Models.Directorys.MaterialPageViewModel
+@{
+    ViewData["Title"] = @Model.Material.Material.Title;
+}
+
+
+<!-- site-main -->
+<div id="main" class="site-main">
+
+
+
+
+    <!-- primary -->
+    <div id="primary" class="content-area">
+
+        <!-- site-content -->
+        <div id="content" class="site-content" role="main">
+
+
+
+
+
+            <!-- InstanceBeginEditable name="FeaturedContent" -->
+            <!-- InstanceEndEditable -->
+            <!-- layout-fixed -->
+            <div class="layout-fixed">
+
+
+
+                <!-- InstanceBeginEditable name="LayoutFixedContent" -->
+                <!-- .hentry -->
+                <article class="hentry post">
+
+
+                    <!-- .entry-header -->
+                    <header class="entry-header">
+
+
+                        <!-- .entry-title -->
+                        <h1 class="entry-title">@Model.Material.Material.Title</h1>
+
+
+                        <!-- .entry-meta -->
+                        <div class="entry-meta">
+                            <span class="entry-date">
+                                <time class="entry-date" datetime="@Model.Material.Material.ToString()">@Model.Material.Material.LastUpdateDateTime.ToShortDateString()</time>
+                            </span>
+                            @*<span class="comment-link">
+                                <a href="http://themes.pixelwars.org/editor-html/blog-single.html#comments">7 Comments</a>
+                            </span>*@
+                            @*<span class="read-time"><span class="eta">3 min</span> read</span>*@
+                            <span class="cat-links">
+                                <a href="#" title="View all posts in @Model.Material.Material.Category" rel="category tag">@Model.Material.Material.Category</a>
+                            </span>
+                            <!--<span class="edit-link">
+                                <a class="post-edit-link" href="#">Edit</a>
+                            </span>-->
+                        </div>
+                        <!-- .entry-meta -->
+
+                    </header>
+                    <!-- .entry-header -->
+                    <!-- .featured-image -->
+                    @if (!string.IsNullOrEmpty(@Model.Material.Material.bigPreview))
+                    {
+                    <div class="featured-image">
+                        <img src="@Model.Material.Material.bigPreview" alt="blog-image">
+                    </div>
+                    }
+                    <!-- .featured-image -->
+                    <!-- .entry-content -->
+                    <div class="entry-content">
+
+                        <!--<iframe src="https://player.vimeo.com/video/50315573?color=AB977A&title=0&byline=0&portrait=0" width="800" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>-->
+                        <!--<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/202812975&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>-->
+
+                        <p class="drop-cap">
+                            @Html.Raw(Model.Material.Material.PageHtml)
+                        </p>
+
+
+                        <!-- .post-tags -->
+                        @*<div class="post-tags tagcloud">
+                            <a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="tag">life</a>
+                            <a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="tag">mind</a>
+                            <a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="tag">think</a>
+                        </div>*@
+                        <!-- .post-tags -->
+                        <!-- .share-links -->
+                        @*<div class="share-links">
+
+                            <h3>SHARE THIS</h3>
+
+                            <a rel="nofollow" target="_blank" href="mailto:?subject=I%20wanted%20you%20to%20see%20this%20post&amp;body=Check%20out%20this%20post%20:%20Sketching%20Mickey%20-%20http://themes.pixelwars.org/editor-html/blog-single.html." title="Email this post to a friend"><i class="pw-icon-mail"></i></a>
+
+                            <a rel="nofollow" target="_blank" href="http://twitter.com/home?status=Currently%20reading:%20%27Sketching%20Mickey%27%20http://themes.pixelwars.org/editor-html/blog-single.html" title="Share this post with your followers"><i class="pw-icon-twitter"></i></a>
+
+                            <a rel="nofollow" target="_blank" href="http://www.facebook.com/sharer.php?u=http://themes.pixelwars.org/editor-html/blog-single.html&amp;t=Sketching%20Mickey" title="Share this post on Facebook"><i class="pw-icon-facebook"></i></a>
+
+                            <a rel="nofollow" target="_blank" href="https://plus.google.com/share?url=http://themes.pixelwars.org/editor-html/blog-single.html" title="Share this post on Google+"><i class="pw-icon-gplus"></i></a>
+
+                        </div>*@
+                        <!-- .share-links -->
+                        <!-- .nav-single -->
+                        <nav class="nav-single row">
+
+                            @if (@Model.NextMaterialPage != null)
+                            {
+                                <div class="nav-previous col-sm-6">
+                                    <h4>PREVIOUS POST</h4>
+                                    <a asp-action="BlogItem" asp-controller="Blog" asp-route-itemId="@Model.NextMaterialPage.EntityId" rel="prev"><span class="meta-nav">←</span>@Model.NextMaterialPage.Title</a>
+                                </div>
+                            }
+                            @if (@Model.PrevMaterialPage != null)
+                            {
+                                <div class="nav-next col-sm-6">
+                                    <h4>NEXT POST</h4>
+                                    <a asp-action="BlogItem" asp-controller="Blog" asp-route-itemId="@Model.PrevMaterialPage.EntityId" rel="next"><span class="meta-nav">→</span>@Model.PrevMaterialPage.Title</a>
+                                </div>
+                            }
+                           
+                        </nav>
+                        <!-- .nav-single -->
+                        <!-- .about-author -->
+                        @*<aside class="about-author">
+
+                            <h3 class="section-title">WRITTEN BY</h3>
+
+                            <!-- .author-bio -->
+                            <div class="author-bio">
+
+                                <!-- .author-img -->
+                                <div class="author-img">
+                                    <a href="http://themes.pixelwars.org/editor-html/blog-single.html#"><img alt="Johnny Doe" src="./Editor - a wordpress blog-single_files/author-1.jpg" class="avatar"></a>
+                                </div>
+                                <!-- .author-img -->
+                                <!-- .author-info -->
+                                <div class="author-info">
+                                    <h4 class="author-name">Zach Johnson</h4>
+                                    <p>He was born in Ulm, in the Kingdom of Württemberg in the German Empire on 14 March 1879. His father was Hermann Einstein, a salesman and engineer. He was a really good man for sure.</p>
+
+                                    <!-- SOCIAL -->
+                                    <ul class="social">
+                                        <li><a class="facebook" href="http://themes.pixelwars.org/editor-html/blog-single.html#"></a></li>
+                                        <li><a class="instagram" href="http://themes.pixelwars.org/editor-html/blog-single.html#"></a></li>
+                                        <li><a class="twitter" href="http://themes.pixelwars.org/editor-html/blog-single.html#"></a></li>
+                                        <li><a class="dribbble" href="http://themes.pixelwars.org/editor-html/blog-single.html#"></a></li>
+                                        <li><a class="vine" href="http://themes.pixelwars.org/editor-html/blog-single.html#"></a></li>
+                                    </ul>
+                                    <!-- SOCIAL -->
+
+                                </div>
+                                <!-- .author-info -->
+
+                            </div>
+                            <!-- .author-bio -->
+
+                        </aside>*@
+                        <!-- .about-author -->
+                        <!-- realated-posts -->
+                        @*<div class="yarpp-related">
+
+                            <h3>You May Also Like</h3>
+
+                            <div class="yarpp-thumbnails-horizontal">
+
+                                <a class="yarpp-thumbnail" href="http://themes.pixelwars.org/editor-html/blog-single.html#">
+                                    <span class="yarpp-thumbnail-default">
+                                        <img src="./Editor - a wordpress blog-single_files/01.jpg">
+                                    </span>
+                                    <span class="yarpp-thumbnail-title">There's always light at the end of the tunnel</span>
+                                </a>
+
+                                <a class="yarpp-thumbnail" href="http://themes.pixelwars.org/editor-html/blog-single.html#">
+                                    <span class="yarpp-thumbnail-default">
+                                        <img src="./Editor - a wordpress blog-single_files/07.jpg">
+                                    </span>
+                                    <span class="yarpp-thumbnail-title">All In Our Head</span>
+                                </a>
+
+                                <a class="yarpp-thumbnail" href="http://themes.pixelwars.org/editor-html/blog-single.html#">
+                                    <span class="yarpp-thumbnail-default">
+                                        <img src="./Editor - a wordpress blog-single_files/04.jpg">
+                                    </span>
+                                    <span class="yarpp-thumbnail-title">Stay Calm And Surf</span>
+                                </a>
+
+                            </div>
+
+                        </div>*@
+                        <!-- realated-posts -->
+
+
+                    </div>
+                    <!-- .entry-content -->
+
+
+
+                </article>
+                <!-- .hentry -->
+                <!-- #comments -->
+                @*<div id="comments" class="comments-area">
+
+                    <h3 class="section-title">5 Comments</h3>
+
+                    <!-- .commentlist -->
+                    <ol class="commentlist">
+                        <li class="comment even thread-even depth-1">
+
+                            <!-- #comment-## -->
+                            <article class="comment">
+
+                                <!-- .comment-meta -->
+                                <header class="comment-meta comment-author vcard">
+                                    <img alt="" src="./Editor - a wordpress blog-single_files/testo-01.jpg" class="avatar" height="75" width="75">
+                                    <cite class="fn"><a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="external nofollow" class="url">Phillip Austin</a></cite>
+                                    <span class="comment-date">October 17, 2013 at 2:16 PM</span>
+                                </header>
+                                <!-- .comment-meta -->
+                                <!-- .comment-content -->
+                                <section class="comment-content comment">
+                                    <p>Hi, this is a very useful article. It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+                                </section>
+                                <!-- .comment-content -->
+                                <!-- .reply -->
+                                <div class="reply">
+                                    <a class="comment-reply-link" href="http://themes.pixelwars.org/editor-html/blog-single.html#">Reply <span>↓</span></a>
+                                </div>
+                                <!-- .reply -->
+
+                            </article>
+                            <!-- #comment-## -->
+                            <!-- .comment depth-2 -->
+                            <ol class="children">
+
+                                <li class="comment odd alt depth-2 bypostauthor">
+
+                                    <!-- #comment-## -->
+                                    <article class="comment">
+
+                                        <!-- .comment-meta -->
+                                        <header class="comment-meta comment-author vcard">
+                                            <img alt="" src="./Editor - a wordpress blog-single_files/author-1.jpg" class="avatar photo" height="75" width="75">
+                                            <cite class="fn"><a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="external nofollow" class="url">Johnny Doe</a></cite>
+                                            <span class="comment-date">October 17, 2013 at 2:16 PM</span>
+                                        </header>
+                                        <!-- .comment-meta -->
+                                        <!-- .comment-content -->
+                                        <section class="comment-content comment">
+                                            <p>Thanks Phillip, glad you liked it. Nice to see you around.</p>
+                                        </section>
+                                        <!-- .comment-content -->
+                                        <!-- .reply -->
+                                        <div class="reply">
+                                            <a class="comment-reply-link" href="http://themes.pixelwars.org/editor-html/blog-single.html#">Reply <span>↓</span></a>
+                                        </div>
+                                        <!-- .reply -->
+
+                                    </article>
+                                    <!-- #comment-## -->
+                                    <!-- .comment depth-3 -->
+                                    <ol class="children">
+
+                                        <li class="comment even depth-3">
+                                            <article class="comment">
+
+                                                <!-- .comment-meta -->
+                                                <header class="comment-meta comment-author vcard">
+                                                    <img alt="" src="./Editor - a wordpress blog-single_files/testo-02.jpg" class="avatar photo" height="75" width="75">
+                                                    <cite class="fn"><a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="external nofollow" class="url">Gary Morgan</a></cite>
+                                                    <span class="comment-date">October 17, 2013 at 2:16 PM</span>
+                                                </header>
+                                                <!-- .comment-meta -->
+                                                <!-- .comment-content -->
+                                                <section class="comment-content comment">
+                                                    <p>Hey guys, c'mon this is old stuff!</p>
+                                                </section>
+                                                <!-- .comment-content -->
+                                                <!-- .reply -->
+                                                <div class="reply">
+                                                    <a class="comment-reply-link" href="http://themes.pixelwars.org/editor-html/blog-single.html#">Reply <span>↓</span></a>
+                                                </div>
+                                                <!-- .reply -->
+
+                                            </article>
+                                            <!-- #comment-## -->
+
+                                        </li>
+                                    </ol>
+                                    <!-- .comment depth-3 -->
+
+                                </li>
+                            </ol>
+                            <!-- .comment depth-2 -->
+
+                        </li>
+                        <!-- .comment depth-1 -->
+                        <!-- .comment depth-1 -->
+                        <li class="comment odd alt thread-odd thread-alt depth-1">
+                            <article id="comment-5" class="comment">
+
+                                <!-- .comment-meta -->
+                                <header class="comment-meta comment-author vcard">
+                                    <img alt="" src="./Editor - a wordpress blog-single_files/testo-02.jpg" class="avatar avatar-44 photo" height="75" width="75">
+                                    <cite class="fn"><a href="http://themes.pixelwars.org/editor-html/blog-single.html#" rel="external nofollow" class="url">Gary Morgan</a></cite>
+                                    <span class="comment-date">October 17, 2013 at 2:16 PM</span>
+                                </header>
+                                <!-- .comment-meta -->
+                                <!-- .comment-content -->
+                                <section class="comment-content comment">
+                                    <p>Hi, this is cool but i know something cooler than this, new iPad!</p>
+                                </section>
+                                <!-- .comment-content -->
+                                <!-- .reply -->
+                                <div class="reply">
+                                    <a class="comment-reply-link" href="http://themes.pixelwars.org/editor-html/blog-single.html#">Reply <span>↓</span></a>
+                                </div>
+                                <!-- .reply -->
+
+                            </article>
+                            <!-- #comment-## -->
+                        </li>
+                        <!-- .comment depth-1 -->
+
+                    </ol>
+                    <!-- .commentlist -->
+                    <!-- #respond -->
+                    <div id="respond">
+
+                        <h3 id="reply-title">LEAVE A COMMENT <small><a rel="nofollow" id="cancel-comment-reply-link" href="http://themes.pixelwars.org/editor-html/blog-single.html#" style="display:none;">Cancel reply</a></small></h3>
+
+                        <!-- .commentform -->
+                        <form action="http://themes.pixelwars.org/editor-html/blog-single.html#" method="post" id="commentform" class="validate-form" novalidate="novalidate">
+
+                            <p class="comment-notes">Your email address will not be published. Required fields are marked <span class="required" aria-required="true">*</span></p>
+
+                            <p class="comment-form-comment">
+                                <label for="comment">Comment</label>
+                                <textarea id="comment" name="comment" rows="8" aria-required="true" class="required"></textarea>
+                            </p>
+
+                            <p class="comment-form-author">
+                                <label for="author">Name <span class="required" aria-required="true">*</span></label>
+                                <input id="author" name="author" type="text" size="30" aria-required="true" class="required">
+                            </p>
+
+                            <p class="comment-form-email">
+                                <label for="email">Email <span class="required" aria-required="true">*</span></label>
+                                <input id="email" name="email" type="text" size="30" aria-required="true" class="required email">
+                            </p>
+
+                            <p class="comment-form-url">
+                                <label for="url">Website</label>
+                                <input id="url" name="url" type="text" size="30">
+                            </p>
+
+                            <p class="form-allowed-tags">You may use these <abbr title="HyperText Markup Language">HTML</abbr> tags and attributes: <code>&lt;a href="" title=""&gt; &lt;abbr title=""&gt; &lt;acronym title=""&gt; &lt;b&gt; &lt;blockquote cite=""&gt; &lt;cite&gt; &lt;code&gt; &lt;del datetime=""&gt; &lt;em&gt; &lt;i&gt; &lt;q cite=""&gt; &lt;strike&gt; &lt;strong&gt; </code></p>
+
+                            <p class="form-submit">
+                                <input type="submit" name="submit" id="submit" class="button primary" value="Post Comment">
+                                <input type="hidden" name="comment_post_ID" value="16" id="comment_post_ID">
+                                <input type="hidden" name="comment_parent" id="comment_parent" value="0">
+                            </p>
+
+                        </form>
+                        <!-- .commentform -->
+
+                    </div>
+                    <!-- #respond -->
+
+                </div>*@
+                <!-- #comments -->
+                <!-- InstanceEndEditable -->
+
+
+
+            </div>
+            <!-- layout-fixed -->
+
+
+
+
+        </div>
+        <!-- site-content -->
+
+    </div>
+    <!-- primary -->
+
+
+
+
+</div>
+<!-- site-main -->
+
+
+<!-- .hentry -->
+@*<article class="hentry type-portfolio">
+    <header class="entry-header">
+        <h1 class="entry-title">@Model.Material.Material.Title</h1>
+        <!-- HEADER LINKS -->
+        <ul class="header-links">
+            <li><a asp-action="Index" asp-controller="Blog"><i class="pw-icon-level-up"></i> Back to Portfolio</a></li>
+        </ul>
+        <!-- HEADER LINKS -->
+    </header>
+
+    <!-- .entry-content -->
+    <div class="entry-content">
+        <p>@Model.Material.Material.SeoDescription</p>
+        <!-- row -->
+        <!-- row -->
+        <p>
+            @Html.Raw(@Model.Material.Material.PageHtml)
+        </p>
+
+
+    </div>
+    <!-- .entry-content -->
+    <!-- .nav-single -->
+    <nav class="nav-single row">
+        @if (Model.PrevMaterialPage != null)
+        {
+            <div class="nav-previous col-sm-6">
+                <h4>@Model.PrevMaterialPage.CallToAction</h4>
+                <a asp-action="BlogItem" asp-controller="Blog" asp-route-itemId="@Model.PrevMaterialPage.EntityId" rel="prev"><span class="meta-nav">←</span> @Model.PrevMaterialPage.Title</a>
+            </div>
+        }
+        @if (Model.NextMaterialPage != null)
+        {
+            <div class="nav-next col-sm-6">
+                <h4>@Model.NextMaterialPage.CallToAction</h4>
+                <a asp-action="BlogItem" asp-controller="Blog" asp-route-itemId="@Model.NextMaterialPage.EntityId" rel="next"><span class="meta-nav">→</span> @Model.NextMaterialPage.Title</a>
+            </div>
+        }
+    </nav>
+    <!-- .nav-single -->
+</article>
+<!-- .hentry -->*@

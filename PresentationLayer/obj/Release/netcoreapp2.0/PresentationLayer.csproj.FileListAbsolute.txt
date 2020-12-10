@@ -1,0 +1,14 @@
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\PresentationLayer.deps.json
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\PresentationLayer.dll
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\PresentationLayer.pdb
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\BusinessLayer.dll
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\DataLayer.dll
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\BusinessLayer.pdb
+D:\Шара\Projects\Git\SASFW\PresentationLayer\bin\Release\netcoreapp2.0\DataLayer.pdb
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.csprojAssemblyReference.cache
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.csproj.CoreCompileInputs.cache
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.AssemblyInfoInputs.cache
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.AssemblyInfo.cs
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.csproj.CopyComplete
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.dll
+D:\Шара\Projects\Git\SASFW\PresentationLayer\obj\Release\netcoreapp2.0\PresentationLayer.pdb

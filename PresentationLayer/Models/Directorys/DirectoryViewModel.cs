@@ -33,7 +33,7 @@ namespace PresentationLayer.Models.Directorys
                 if (materials.Count() > 0)
                     foreach (var item in _list.OrderBy(x => x.Order))
                     {
-                        if (_currentCategoty != item.Category && !Materials.ContainsKey(_currentCategoty))
+                        if (_currentCategoty != item.Category && !Materials.ContainsKey(item.Category))
                         {
                             _currentCategoty = item.Category;
                             Materials.Add(_currentCategoty, new List<MaterialViewModel>());
